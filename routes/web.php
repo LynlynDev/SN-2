@@ -27,6 +27,7 @@ Route::post('/region_insert', function () { //le chemin d'accès qui s'affichera
 });
 
 Route::get("/region_create", [RegionController::class, "formulaire_region"]);
+// Route::get("/region_create", [app\Http\Controllers\RegionController:class, "formulaire_region"])->name('formulaire_region');
 Route::post("/region_insert", [RegionController::class, "store"]);
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
