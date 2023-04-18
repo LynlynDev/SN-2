@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('region_models', function (Blueprint $table) {
-            $table->id();
+            $table->increments("id");
             $table->timestamps();
-            $table->string('Name');
+            $table->string("label", 30);   //default("Nord")
         });
     }
 

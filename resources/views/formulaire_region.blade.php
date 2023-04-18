@@ -17,11 +17,12 @@
         </style>
     </head>
     <body class="antialiased">
-    <form action= "/region_insert" method = "Post">
+    <form action= "" method = "Post">
         {{csrf_field()}}
-        <label for="region" id="region">Région</label>
-        <input type="text" name= "region" value="" placeholder="region">
-        <button type="submit">Ok</button>
+        <label for="" id="region">Région</label>
+        <input type="text" name= "" value="" placeholder="">
+
+        <button>Ok</button>
     </form>
     </body>
 </html>
