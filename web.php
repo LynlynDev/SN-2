@@ -17,16 +17,14 @@ use app\Http\Controllers\Regioncontroller;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/region-create', function () { //le chemin d'accès qui s'affichera sur l'URL
-    return view('formulaire_region'); //le nom du fichier blade dans lequel la route doit nous rediriger
+
+Route::get('/region_create', function () {
+    return view('index');
 });
 
-
-Route::get("/region_create", [RegionController::class, "index"]);
-Route::post("/region_store", [RegionController::class, "store"]);
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/region_insert', function () {
+    return view('formulaire_region');
+});
 
 Route::post('/region_insert', function () {
     return "Nous avons bien reçu votre région qui est : " . request('region');
