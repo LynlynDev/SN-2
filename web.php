@@ -18,17 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/region_create', function () {
-    return view('index');
-});
 
-Route::get('/region_insert', function () {
-    return view('formulaire_region');
-});
-
-Route::post('/region_insert', function () {
-    return "Nous avons bien reçu votre région qui est : " . request('region');
-});
-
-//Route::get("/region_create" , [Regioncontroller::class,"index"]);
-//Route::get("/region_insert" , [Regioncontroller::class,"show"]);
+Route::get("/region_create" , [Regioncontroller::class,"index"]);
+Route::post("/region_insert" , [Regioncontroller::class,"store"]);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use \App\RegionModel;
 
 class RegionController extends Controller
 {
@@ -11,7 +13,7 @@ class RegionController extends Controller
      */
     public function index()
     {
-        //
+        return view('formulaire_region');
     }
 
     /**
@@ -20,6 +22,8 @@ class RegionController extends Controller
     public function create()
     {
         //
+        $liste = RegionModel::all();
+        return view('liste_region',compact("liste"));
     }
 
     /**
@@ -28,6 +32,16 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         //
+        try{
+            DB::beginTransaction();
+            RegionModel::create(["label"=> $request->region]);
+            DB::commit();
+           //$liste = RegionModel::all();
+            return view("formulaire_region");
+        }
+        catch(\Throwable $e){
+            return back();
+        }
     }
 
     /**
@@ -59,6 +73,17 @@ class RegionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
+        try{
+            DB::beginTransaction();
+            RegionModel::find($id)->delete();
+            DB::commit();
+            return redirect('/region_liste');
+            
+        }
+        catch(\Throwable $th){
+            dd($th);
+            return back();
+        }
     }
 }

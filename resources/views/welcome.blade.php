@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <a href="/region_create">Creation de région</a>
-    <h1 class="alert alert-success">Success</h1>
+<body class="antialiased container">
+    
+<h1 class="alert alert-success">My first project</h1>
+    <a href="/region_create"class="btn btn-outline primary" >Creation de région</a>
+    <a href="/region_liste"class="btn btn-outline primary" >Liste des régions</a>
+    <!-- <a href="/region_liste"class="btn btn-outline primary" >Liste des régions</a> -->
+   
+    
 </body>
 </html>
