@@ -27,7 +27,7 @@ use App\Http\Controllers\RegionController;
     Route::post("/region_insert", [RegionController::class, "store"]);
     Route::get("/region_liste", [RegionController::class, "create"]);
     Route::get("/region_delete/{id}", [RegionController::class, "destroy"]);
-    Route::get("/form_update_region/{id}", [RegionController::class, "update"]);
+    Route::get("/form_update_region/{id}", [RegionController::class, "edit"]);
     
 
 
