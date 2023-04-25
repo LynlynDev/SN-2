@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParticipantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegionController;
 
@@ -26,11 +27,13 @@ use App\Http\Controllers\RegionController;
     Route::get("/region_create", [RegionController::class, "index"]);
     Route::post("/region_insert", [RegionController::class, "store"]);
     Route::get("/region_liste", [RegionController::class, "create"]);
+    Route::post("/region_update", [RegionController::class, "update"]);
     Route::get("/region_delete/{id}", [RegionController::class, "destroy"]);
     Route::get("/form_update_region/{id}", [RegionController::class, "edit"]);
     
 
-
+            //PARTICIPANT
+    Route::apiResource('participant', ParticipantController::class);
 
 
 

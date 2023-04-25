@@ -13,11 +13,12 @@
        
     </head>
     <body >
-    <form action= "/region_insert" method = "Post">
+    <form action= "/region_update" method = "Post">
         {{ csrf_field() }}
-        <h1>Création d'une région</h1>
+        <h1>Mise à jour de Région</h1>
         <label for="" id="region">Région</label>
-        <input type="text" name= "region" value="" placeholder="region">
+        <input type="hidden" value="{{ $reg->label }}" name="id">
+        <input type="text" name= "region" value="{{$reg->label}}" placeholder="region">
         <button type="submit" class="btn btn-outline-primary">Ok</button>
     </form>
     </body>
