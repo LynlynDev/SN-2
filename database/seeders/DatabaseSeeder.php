@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\participant;
 use Illuminate\Database\Seeder;
+use \App\RegionModel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+            RegionModel::factory(20)->create();
+            participant::factory(20)->create();
+
+
     }
 }

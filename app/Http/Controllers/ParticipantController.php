@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\participant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ParticipantController extends Controller
 {
@@ -18,6 +19,9 @@ class ParticipantController extends Controller
             'status' => true,
             'participant' => $participant
         ]);
+        // OU
+        // $participant = Participant::all();
+        // return response()->json($participant, 200);
     }
 
     /**
@@ -84,5 +88,19 @@ class ParticipantController extends Controller
             'status' => true,
             'message' => "participant Deleted successfully!",
         ], 200);
+    }
+
+    public function onoff($id_participant){
+        try {
+            DB::beginTransaction();
+            $participant = Participant::find($id_participant);
+            $participant->etat=!($participant->etat);
+            $participant->update();
+            DB::commit();
+            return response()->json("operation réussie");
+        } catch (\Throwable $th) {
+            //throw $th;
+            return response()->json("echec de l'opération");
+        }
     }
 }
