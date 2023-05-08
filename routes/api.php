@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\REST\RegionController;
+use App\Http\Controllers\ParticipantController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+            //PARTICIPANT
+Route::apiResource('participant', ParticipantController::class);
+Route::get("onoff/{id_participant}", [ParticipantController::class,"onoff"]);
+
+
+Route::apiResource('regionModel', RegionController::class);
+
+Route::apiResource('entite', EntiteController::class);

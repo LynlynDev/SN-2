@@ -33,8 +33,8 @@ use App\Http\Controllers\RegionController;
     
 
             //PARTICIPANT
-    Route::apiResource('participant', ParticipantController::class);
-    Route::get("onoff/{id_participant}", [ParticipantController::class,"onoff"]);
+    // Route::apiResource('participant', ParticipantController::class);
+   
 
 
 
