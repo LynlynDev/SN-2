@@ -62,8 +62,8 @@ class EntiteController extends Controller
 
          response()->json("{'la modification a été effectuée avec succès",200);
             return $id;
-        } catch (\Throwable $error) {
-            dd($error);
+        } catch (\Throwable $th) {
+            dd($th);
             //throw $th;
             return response()->json("{'erreur de modification'}",404);
         }

@@ -22,7 +22,7 @@ class participantFactory extends Factory
             // "nom" => Str::upper(Str::random(20)),
             "nom"=>$this->faker->name(),
             "email"=>$this->faker->email(),
-            "tel"=>$this->faker->phoneNumber(),
+            "tel"=>$this->faker->phoneNumber(),   //faker permet le respect de l'agencement, de l'order des noms, emails
             // "id_region"=>rand(1,20),
             "age"=>rand(21,100)
         ];

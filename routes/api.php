@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\REST\RegionController;
 use App\Http\Controllers\ParticipantController;
+use App\Http\Controllers\REST\EntiteController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
