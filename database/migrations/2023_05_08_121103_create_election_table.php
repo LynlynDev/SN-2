@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('entite', function (Blueprint $table) {
-            $table->id("identite");
-            $table->date("date_entite");
-            $table->string("label_entite");
-            $table->text("description", 30);
-            $table->string("statut_entite", 30);
+        Schema::create('election', function (Blueprint $table) {
+            $table->increments("id_election");
+            $table->date("date",50);
+            $table->string("lab",100);
+            $table->text("description", 300);
+            $table->string("statut")->default('ouvert');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('entites');
+        Schema::dropIfExists('election');
     }
 };

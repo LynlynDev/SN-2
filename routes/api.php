@@ -25,6 +25,8 @@ Route::apiResource('participant', ParticipantController::class);
 Route::get("onoff/{id_participant}", [ParticipantController::class,"onoff"]);
 
 
+Route::apiResource('participant', ParticipantController::class);
 Route::apiResource('regionModel', RegionController::class);
-
-Route::apiResource('entite', EntiteController::class);
+Route::apiResource('election', ElectionController::class);
+Route::apiResource('bulletin', BulletinController::class);
+Route::apiResource('vote', VoteController::class);

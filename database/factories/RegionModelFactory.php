@@ -18,7 +18,8 @@ class RegionModelFactory extends Factory
     public function definition(): array
     {
         return [
-            "label"=> Str::upper(Str::random(10))
+            "label"=> $this->faker->state(), 
+            // "label"=> $this->faker->Str::upper(Str::random(10)) //génère aléatoirement avec des noms autres
         ];
     }
 }

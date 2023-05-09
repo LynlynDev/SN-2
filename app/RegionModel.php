@@ -17,6 +17,6 @@ class RegionModel extends Model
 
     protected $fillable = ["label"];
     public function participant(){
-        
+        return $this->hasMany(Participant::class, 'id_region');
     }
 }
