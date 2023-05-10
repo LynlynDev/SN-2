@@ -24,8 +24,8 @@ class participant extends Model
 		return $this->belongsTo(RegionModel::class, 'id');
 	}
 
-	public function vote() 
-	{
-		return $this->hasMany(vote::class, 'id_participant');
-	}
+	// public function vote() 
+	// {
+	// 	return $this->hasMany(vote::class, 'id_participant');
+	// }
 }

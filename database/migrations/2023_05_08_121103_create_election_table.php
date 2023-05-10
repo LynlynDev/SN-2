@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('election', function (Blueprint $table) {
             $table->increments("id_election");
             $table->date("date",50);
-            $table->string("lab",100);
+            $table->string("label",100);
             $table->text("description", 300);
             $table->string("statut")->default('ouvert');
             $table->timestamps();

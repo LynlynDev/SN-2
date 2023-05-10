@@ -16,7 +16,7 @@ class RegionModel extends Model
     public $timestamps = false;
 
     protected $fillable = ["label"];
-    public function participant(){
-        return $this->hasMany(Participant::class, 'id_region');
-    }
+    // public function participant(){
+    //     return $this->hasMany(Participant::class, 'id');
+    // }
 }

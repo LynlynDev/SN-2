@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\REST;
 
+use App\bulletin;
+use App\election;
 use App\Http\Controllers\Controller;
+use App\participant;
 use App\vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +74,7 @@ class VoteController extends Controller
             response()->json("{'Modification réussie du vote'}", 200);
             return $vote;
         } catch (\Throwable $error) {
-            return response()->json("{'error: Imposible de mettre a jour le vote'}", 404);
+            return response()->json("{'error: Imposible de mettre a jour le vote'}". $error,404);
         }
     }
 
@@ -86,7 +89,28 @@ class VoteController extends Controller
             $vote->delete();
             return response()->json("{'Suppresion réussie du vote'}", 200);
         } catch (\Throwable $error) {
-            return response()->json("{'error: Imposible de supprimé le vote'}", 404);
+            return response()->json("{'error: Imposible de supprimé le vote'}". $error, 404);
         }
     }
+
+    public function countVotes($participantId, $bulletinId, $electionId)
+    {
+        try {
+            $participant = participant::find($participantId);
+            $bulletin = bulletin::find($bulletinId);
+            $election = election::find($electionId);
+    
+            if ($participant && $bulletin && $election) {
+                $votes = $bulletin->votes()
+                    ->where('id_participant', $participant->id)
+                    ->where('id_election', $election->id)
+                    ->count();
+    
+                return response()->json(['votes' => $votes]);
+            }
+        }catch (\Throwable $th){
+            return response()->json(['error' => 'Participant, bulletin, or election not found']. $th,404);
+        }
+    }
+
 }

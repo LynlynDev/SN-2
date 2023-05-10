@@ -25,10 +25,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
             RegionModel::factory(20)->create();
-            participant::factory(20)->create();
-            election::factory(20)->create();
-            bulletin::factory(20)->create();
-            vote::factory(20)->create();
+            participant::factory(200)->create();
+            election::factory(1)->create();
+            bulletin::factory(5)->create();
+            vote::factory(195)->create();
 
 
     }

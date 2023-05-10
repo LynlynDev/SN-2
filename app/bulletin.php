@@ -17,8 +17,8 @@ class bulletin extends Model
 		'photo'
 	];
 
-	public function vote()
-	{
-		return $this->hasMany(vote::class, 'id_bulletin');
-	}
+	// public function vote()
+	// {
+	// 	return $this->hasMany(vote::class, 'id_bulletin');
+	// }
 }

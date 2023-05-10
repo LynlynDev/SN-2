@@ -12,7 +12,7 @@ class vote extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'identite' => 'int',
+		'idbulletin' => 'int',
 		'idelection' => 'int',
 		'id_participant' => 'int'
 	];

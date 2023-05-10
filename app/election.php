@@ -13,8 +13,8 @@ class election extends Model
 
 	protected $fillable = [ 'date', 'statut', 'label', 'description' ];
 
-	public function votes()
-	{
-		return $this->hasMany(vote::class, 'idelection');
-	}
+	// public function votes()
+	// {
+	// 	return $this->hasMany(vote::class, 'idelection');
+	// }
 }

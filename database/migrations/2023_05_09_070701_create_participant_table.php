@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('participant', function (Blueprint $table) {
             $table->increments('id_participant');
-            $table->string('nom', 50);
-            $table->string('login', 30);
-            $table->string('cni', 30);
+            $table->string('nom', 100);
+            $table->string('login', 10);
+            $table->string('cni', 15);
             $table->integer('age');
             $table->char('sexe', 1)->default('F');
             $table->string('statut')->default('E');
             $table->unsignedInteger('id');
-            $table->foreign(('id'))->references('id')->on('region_models')->onDelete('cascade');;
-            $table->string('password', 100);
-            $table->string('email', 30)->nullable();
-            $table->boolean('etat', 1)->default('1.');
-            $table->string('tel', 15)->nullable();
+            $table->foreign('id')->references('id')->on('region_models')->onDelete('cascade');
+            $table->string('pwd', 100);
+            $table->string('email', 300)->nullable();
+            $table->boolean('etat', 1)->default('1');
+            $table->string('tel', 20)->nullable();
 
         });
     }

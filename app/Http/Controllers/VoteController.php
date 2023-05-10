@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\vote;
+use \App\bulletin;
+use \App\participant;
+use \App\election;
 use Illuminate\Http\Request;
 
 class VoteController extends Controller
@@ -61,5 +64,25 @@ class VoteController extends Controller
     public function destroy(vote $vote)
     {
         //
+    }
+
+    public function countVotes($participantId, $bulletinId, $electionId)
+    {
+        try {
+            $participant = participant::find($participantId);
+            $bulletin = bulletin::find($bulletinId);
+            $election = election::find($electionId);
+    
+            if ($participant && $bulletin && $election) {
+                $votes = $bulletin->votes()
+                    ->where('id_participant', $participant->id)
+                    ->where('id_election', $election->id)
+                    ->count();
+    
+                return response()->json(['votes' => $votes]);
+            }
+        }catch (\Throwable $th){
+            return response()->json(['error' => 'Participant, bulletin, or election not found']. $th,404);
+        }
     }
 }

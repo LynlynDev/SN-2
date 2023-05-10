@@ -24,6 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('participant', ParticipantController::class);
 Route::get("onoff/{id_participant}", [ParticipantController::class,"onoff"]);
 
+Route::get("countVotes/{idvote}", [VoteController::class,"resultat"]);
+
 
 Route::apiResource('participant', ParticipantController::class);
 Route::apiResource('regionModel', RegionController::class);
