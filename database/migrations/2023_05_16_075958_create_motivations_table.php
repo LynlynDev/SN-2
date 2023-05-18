@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('election', function (Blueprint $table) {
-            $table->increments("id_election");
-            $table->date("date",50);
-            $table->string("label",100);
-            $table->text("description", 300);
-            $table->string("statut")->default('ouvert');
+        Schema::create('motivation', function (Blueprint $table) {
+            $table->increments('id_motivation');
+            $table->string('intitule', 100);
+            $table->unsignedInteger('id_abonne');
+            $table->foreign('id_abonne')->references('id_abonne')->on('abonne')->onDelete('cascade')->name('motivations_id_abonne_foreign');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('election');
+        Schema::dropIfExists('motivations');
     }
 };

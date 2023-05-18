@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\motivation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use \App\RegionModel;
+use Illuminate\Support\Facades\Hash;
 
-class RegionController extends Controller
+class MotivationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('creation_region');
+        return view('creation_motivation');
     }
 
     /**
@@ -21,9 +22,8 @@ class RegionController extends Controller
      */
     public function create()
     {
-        //
-        $liste = RegionModel::all();
-        return view('liste_region',compact("liste")); //le liste_region ici est le formulaire en question
+        $liste = motivation::all();
+        return view('liste_motivation',compact("liste"));
     }
 
     /**
@@ -31,13 +31,12 @@ class RegionController extends Controller
      */
     public function store(Request $request)
     {
-        //
         try{
             DB::beginTransaction();
-            RegionModel::create(["label"=> $request->region]);
+            motivation::create(["intitule"=> $request->motivation
+                               ]);
             DB::commit();
-           //$liste = RegionModel::all();
-            return view("creation_region");
+            return view("creation_motivation");
         }
         catch(\Throwable $e){
             return back();
@@ -57,18 +56,7 @@ class RegionController extends Controller
      */
     public function edit(string $id)
     {
-        // try{
-        //     DB::beginTransaction();
-        //     $reg = RegionModel::find($id);
-        //     DB::commit();
-        //     return view("update_region", compact("reg"));  //le update_region ici est le formulaire en question
-            
-        // }
-        // catch(\Throwable $th){
-        //     return back();
-        // }
-        
-        
+        //
     }
 
     /**
@@ -76,11 +64,12 @@ class RegionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+      
         try{
             DB::beginTransaction();
-            RegionModel::find($request, $id)->update(['label' => $request->label]);
+            motivation::find($request, $id)->update(['intitule' => $request->intitule]);
             DB::commit();
-            return redirect("/region_liste");
+            return redirect("/motivation_liste");
 
         }catch(\Throwable $th){
             return back();
@@ -92,12 +81,11 @@ class RegionController extends Controller
      */
     public function destroy(string $id)
     {
-        
         try{
             DB::beginTransaction();
-            RegionModel::find($id)->delete();
+            motivation::find($id)->delete();
             DB::commit();
-            return redirect('/region_liste');
+            return redirect('/motivation_liste');
             
         }
         catch(\Throwable $th){

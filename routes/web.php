@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\MotivationController;
 use App\Http\Controllers\ParticipantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegionController;
+use App\Models\motivation;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +20,17 @@ use App\Http\Controllers\RegionController;
     Route::get('/', function () {
         return view('welcome');
         });
-    Route::get('/region_create', function () {                          //le chemin d'accès qui s'affichera sur l'URL
-        return view('index');                                           //le nom du fichier blade dans lequel la route doit nous rediriger
-        });
+   
 
     
 
-    Route::get("/region_create", [RegionController::class, "index"]);
-    Route::post("/region_insert", [RegionController::class, "store"]);
-    Route::get("/region_liste", [RegionController::class, "create"]);
-    Route::post("/region_update", [RegionController::class, "update"]);
-    Route::get("/region_delete/{id}", [RegionController::class, "destroy"]);
-    Route::get("/form_update_region/{id}", [RegionController::class, "edit"]);
+    Route::get("/motivation_create", [MotivationController::class, "index"]);
+    Route::post("/motivation_insert", [MotivationController::class, "store"]);
+    Route::get("/motivation_liste", [MotivationController::class, "create"]);
+
     
 
-            //PARTICIPANT
-    // Route::apiResource('participant', ParticipantController::class);
+     
    
 
 

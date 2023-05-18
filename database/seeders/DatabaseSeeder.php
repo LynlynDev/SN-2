@@ -6,6 +6,8 @@ namespace Database\Seeders;
 
 use App\bulletin;
 use App\election;
+use App\Models\abonne;
+use App\Models\motivation;
 use App\participant;
 use Illuminate\Database\Seeder;
 use \App\RegionModel;
@@ -24,11 +26,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-            RegionModel::factory(20)->create();
-            participant::factory(200)->create();
-            election::factory(1)->create();
-            bulletin::factory(5)->create();
-            vote::factory(195)->create();
+            abonne::factory(200)->create();
+            motivation::factory(40)->create();
+            
 
 
     }
